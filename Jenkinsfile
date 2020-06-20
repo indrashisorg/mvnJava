@@ -1,7 +1,7 @@
 pipeline {
        agent { label 'win' }
 	    tools {
-        maven 'Maven_3.6' 
+        maven 'Maven_3.5.2' 
     }
     stages {
         stage('Compile') {
