@@ -1,28 +1,29 @@
+   node {
+     mvn =   tool name: 'mvn', type: 'maven'
+     echo "Indrashis>>>>>>>>>>>>>>"
+     echo mvn
+    }
 pipeline {
        agent { label 'win' }
-	    tools {
-        maven 'Maven_3.5.2' 
-    }
+	 
     stages {
         stage('Compile') {
 		steps {
-                withMaven(maven:'mvn'){
-				sh 'mvn clean compile'
-				}
+				sh 'mvn -f HelloWorldJava/pom.xml clean compile'
+				
 			}
         }
         stage('Test') {
             steps {
-			withMaven(maven:'mvn'){
-				sh 'mvn install'
-				}
+		     sh 'mvn -f HelloWorldJava/pom.xml install'
+				
             }
         }
         stage('Deploy') {
             steps {
-			withMaven(maven:'mvn'){
-				sh 'mvn deploy'
-				}
+                echo "Come later"
+		   //  sh 'mvn -f HelloWorldJava/pom.xml deploy'
+				
             }
         }
     }
