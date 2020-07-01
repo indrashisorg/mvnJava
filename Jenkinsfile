@@ -1,4 +1,5 @@
-   node {
+@Library('jenkinsSharedLib@master') _ 
+ node {
      mvn =   tool name: 'mvn', type: 'maven'
      echo "Indrashis>>>>>>>>>>>>>>"
      echo mvn
@@ -13,12 +14,7 @@ pipeline {
 				
 			}
         }
-        stage('Test') {
-            steps {
-		     sh 'mvn -f HelloWorldJava/pom.xml install'
-				
-            }
-        }
+        buildJava()
         stage('Deploy') {
             steps {
                 echo "Come later"
