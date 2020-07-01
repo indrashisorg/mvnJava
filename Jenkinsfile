@@ -14,7 +14,11 @@ pipeline {
 				
 			}
         }
-        buildJava()
+       stage('Test') {
+            steps {
+		     buildJava()
+            }
+        }
         stage('Deploy') {
             steps {
                 echo "Come later"
